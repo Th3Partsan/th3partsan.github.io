@@ -255,6 +255,22 @@
   }
   .empty.show{display:block}
 
+  /* Archived / closed jobs */
+  .archived-section{margin:36px 0 8px;border-top:1px solid var(--line);padding-top:26px}
+  .archived-section[hidden]{display:none}
+  .archived-head h2{color:var(--ink-2)}
+  .archived-head p{color:var(--muted)}
+  .card.is-archived{opacity:.86;box-shadow:none;background:var(--surface-2)}
+  .card.is-archived .date-block{background:var(--ink-2)}
+  .card.is-archived .date-block .mon{color:#d7e6ef}
+  .card.is-archived h3{color:var(--ink-2)}
+  .closed-note{
+    margin:0;font-size:.92rem;line-height:1.45;font-weight:700;
+    color:var(--red);background:var(--red-soft);
+    border:1px solid var(--red);border-radius:8px;padding:9px 11px;
+  }
+  .tag.archived{background:var(--surface);color:var(--muted);border:1px solid var(--line)}
+
   /* Closing */
   .closing{
     margin:28px 0 8px;
@@ -370,11 +386,11 @@
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-top">
-      <div class="brand"><strong>Carrier Enterprise</strong> &nbsp;·&nbsp; South Texas</div>
-      <div class="updated-pill">Updated Wednesday, Nov 18, 2026</div>
+      <div class="brand"><strong>Alan Sullivan</strong> &nbsp;·&nbsp; Houston, Texas</div>
+      <div class="updated-pill">Updated Thursday, Nov 19, 2026</div>
     </div>
     <h1>Houston-Area Bid Opportunities</h1>
-    <p class="subline">Light-commercial jobs with real HVAC scope, screened by Alan Sullivan — Carrier Enterprise, South Texas.</p>
+    <p class="subline">Light-commercial jobs with real HVAC scope, screened by Alan Sullivan. A personal project built from publicly posted bid listings.</p>
     <p class="intro">I screen new bid listings every week and post the ones worth your time. If a job interests you, tap the blue <strong>&#8220;Request plans &amp; specs&#8221; button</strong> at the bottom of that job&#8217;s card. It opens a request panel with a ready-to-send email. For most jobs, send it and the plans, specs, and bid instructions come back right away by email. For the few jobs still being pulled, you&#8217;ll get the bid instructions right away and the plans by email as soon as they&#8217;re in.</p>
   </div>
 </header>
@@ -383,7 +399,7 @@
   <div class="contact-card" aria-label="Contact Alan Sullivan">
     <div class="contact-who">
       <div class="name">Alan Sullivan</div>
-      <div class="role">Commercial Sales Engineer · Carrier Enterprise</div>
+      <div class="role">Personal project · Houston, Texas</div>
     </div>
     <div class="contact-actions">
       <a class="call-btn primary" href="tel:+17139396082">
@@ -412,7 +428,7 @@
       <h2>Bidding soonest first</h2>
       <p>Every job below was checked for actual mechanical scope before it made this list.</p>
     </div>
-    <div class="count"><b id="visibleCount">11</b> open opportunities</div>
+    <div class="count"><b id="visibleCount">10</b> open opportunities</div>
   </div>
 
   <div class="filters" role="group" aria-label="Filter opportunities">
@@ -423,26 +439,6 @@
 
   <div class="grid" id="grid">
 
-
-    <!-- 6 -->
-    <article class="card" data-tag="carrier" data-bid="2026-11-19T11:00:00-06:00">
-      <div class="card-top">
-        <div class="date-block" aria-hidden="true"><div class="mon">Nov</div><div class="day">19</div><div class="dow">Thursday</div></div>
-        <div class="card-head">
-          <h3>New Animal Shelter Building</h3>
-          <div class="meta">
-            <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Sugar Land</span>
-            <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>Value ~$16M</span>
-          </div>
-        </div>
-      </div>
-      <div class="bid-line"><span class="when">Bids Thu, Nov 19 · 11:00 AM</span><span class="badge" data-badge></span></div>
-      <p class="note">Custom air handler, condensing units, and rooftop units all specified <strong>Carrier</strong>. A big project — worth an early look at the mechanical drawings.</p>
-      <div class="card-foot">
-        <span class="tag carrier">Carrier specified</span>
-        <button type="button" class="req-btn" data-subject="Plans request: Sugar Land Animal Shelter" aria-haspopup="dialog"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="11"/><polyline points="9 14 12 11 15 14"/></svg>Request plans &amp; specs</button>
-      </div>
-    </article>
 
     <!-- 7 -->
     <article class="card" data-tag="carrier" data-bid="2026-11-19T14:00:00-06:00">
@@ -647,6 +643,37 @@
   </div>
   <div class="empty" id="emptyState">No jobs match that filter right now — try “All jobs.”</div>
 
+  <section class="archived-section" id="archivedSection" aria-label="Closed and archived opportunities">
+    <div class="section-head archived-head">
+      <div>
+        <h2>Closed — archived</h2>
+        <p>These bid deadlines have passed. They’re kept here for reference only — plans are no longer being sent for closed jobs.</p>
+      </div>
+      <div class="count"><b id="archivedCount">1</b> archived</div>
+    </div>
+    <div class="grid archived-grid" id="archivedGrid">
+      <article class="card is-archived" data-tag="carrier" data-bid="2026-11-19T11:00:00-06:00" data-archived="true">
+        <div class="card-top">
+          <div class="date-block" aria-hidden="true"><div class="mon">Nov</div><div class="day">19</div><div class="dow">Thursday</div></div>
+          <div class="card-head">
+            <h3>New Animal Shelter Building</h3>
+            <div class="meta">
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Sugar Land</span>
+              <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>Value ~$16M</span>
+            </div>
+          </div>
+        </div>
+        <div class="bid-line"><span class="when">Bids Thu, Nov 19 · 11:00 AM</span><span class="badge today" data-badge>Bid closed</span></div>
+        <p class="note">Custom air handler, condensing units, and rooftop units all specified <strong>Carrier</strong>. A big project — worth an early look at the mechanical drawings.</p>
+        <div class="card-foot">
+          <span class="tag carrier">Carrier specified</span>
+          <span class="tag archived">Archived — bid closed</span>
+          <p class="closed-note">Bidding closed Thu, Nov 19 at 11:00 AM. This job is no longer open.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <section class="closing" aria-label="How to get the plans">
     <div>
       <h2>Ready to bid one of these?</h2>
@@ -662,7 +689,7 @@
 
 <footer>
   <span><strong>Updated weekly.</strong> Bid dates can move by addenda — confirm before you bid.</span>
-  <span>Alan Sullivan · Carrier Enterprise, South Texas</span>
+  <span>Alan Sullivan · Personal project — public postings only</span>
 </footer>
 
 <dialog class="req-dialog" id="reqDialog" aria-labelledby="reqDialogTitle">
@@ -703,21 +730,67 @@ Please email me the plans and specs for this job.</div>
 
 <script>
 (function(){
-  // Countdown badges, computed from the viewer's clock so they stay honest
+  // Expired jobs are archived automatically from the viewer's clock, so a
+  // job never stays in the open list after its bid time passes — even
   // between weekly refreshes.
   var now = new Date();
-  document.querySelectorAll('.card').forEach(function(card){
+  var grid = document.getElementById('grid');
+  var archivedGrid = document.getElementById('archivedGrid');
+  var archivedSection = document.getElementById('archivedSection');
+  var archivedCountEl = document.getElementById('archivedCount');
+
+  function updateArchivedMeta(){
+    if (!archivedGrid || !archivedSection) return;
+    var n = archivedGrid.querySelectorAll('.card').length;
+    if (archivedCountEl) archivedCountEl.textContent = n;
+    archivedSection.hidden = n === 0;
+  }
+  function archiveCard(card){
+    card.classList.add('is-archived');
+    card.classList.remove('is-soon');
+    card.setAttribute('data-archived','true');
+    card.style.opacity = '';
+    card.style.display = '';
+    var badge = card.querySelector('[data-badge]');
+    if (badge) { badge.textContent = 'Bid closed'; badge.className = 'badge today'; }
+    var btn = card.querySelector('.req-btn');
+    if (btn) btn.remove();
+    var foot = card.querySelector('.card-foot');
+    if (foot && !foot.querySelector('.closed-note')) {
+      var tag = document.createElement('span');
+      tag.className = 'tag archived';
+      tag.textContent = 'Archived — bid closed';
+      foot.appendChild(tag);
+      var note = document.createElement('p');
+      note.className = 'closed-note';
+      note.textContent = 'Bidding has closed for this job. This job is no longer open.';
+      foot.appendChild(note);
+    }
+    if (archivedGrid) archivedGrid.appendChild(card);
+  }
+
+  // Move any expired open job into the archive; stamp archived jobs closed.
+  if (grid && archivedGrid) {
+    Array.prototype.slice.call(grid.querySelectorAll('.card')).forEach(function(card){
+      var bid = new Date(card.getAttribute('data-bid'));
+      if (!isNaN(bid) && bid < now) archiveCard(card);
+    });
+  }
+  document.querySelectorAll('#archivedGrid .card').forEach(function(card){
+    var badge = card.querySelector('[data-badge]');
+    if (badge) { badge.textContent = 'Bid closed'; badge.className = 'badge today'; }
+  });
+  updateArchivedMeta();
+
+  // Countdown badges for the jobs still open.
+  document.querySelectorAll('#grid .card').forEach(function(card){
     var bid = new Date(card.getAttribute('data-bid'));
     var badge = card.querySelector('[data-badge]');
     if(!badge || isNaN(bid)) return;
     var msPerDay = 86400000;
     var startOf = function(d){ var x = new Date(d); x.setHours(0,0,0,0); return x; };
     var days = Math.round((startOf(bid) - startOf(now)) / msPerDay);
-    if (bid < now) {
-      badge.textContent = 'Bid closed';
-      badge.className = 'badge today';
-      card.style.opacity = '.72';
-    } else if (days === 0) {
+    if (days === 0) {
       badge.textContent = 'Bids today';
       badge.className = 'badge today';
       card.classList.add('is-soon');
@@ -735,11 +808,12 @@ Please email me the plans and specs for this job.</div>
     }
   });
 
-  // Tag filter
+  // Tag filter — open jobs only; archived jobs stay in the archive below.
   var chips = document.querySelectorAll('.chip');
-  var cards = document.querySelectorAll('.card');
+  var cards = document.querySelectorAll('#grid .card');
   var countEl = document.getElementById('visibleCount');
   var emptyEl = document.getElementById('emptyState');
+  if (countEl) countEl.textContent = cards.length;
   chips.forEach(function(chip){
     chip.addEventListener('click', function(){
       chips.forEach(function(c){ c.setAttribute('aria-pressed','false'); });
